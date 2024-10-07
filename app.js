@@ -15,7 +15,7 @@ app.use(express.json());
 app.use('/uploads', express.static('uploads')); // Serve uploaded images
 
 // Connect to MongoDB
-mongoose.connect(process.env.DB_URI,{ useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(process.env.DB_URI)
     .then(() => console.log('MongoDB connected'))
     .catch(err => console.error(err));
 
