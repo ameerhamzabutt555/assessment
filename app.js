@@ -15,11 +15,15 @@ app.use(express.json());
 app.use('/uploads', express.static('uploads')); // Serve uploaded images
 
 // Connect to MongoDB
-mongoose.connect(process.env.DB_URI)
+mongoose.connect(process.env.DB_URI,{ useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('MongoDB connected'))
     .catch(err => console.error(err));
 
+
 // Define routes
+app.get('/', (req, res) => {
+    res.send('<h1>Welcome to Our Website!</h1><p>This is a simple landing page.</p>');
+});
 app.use('/users', users);
 app.use('/vehicles', vehicles);
 
