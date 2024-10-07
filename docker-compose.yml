@@ -1,0 +1,33 @@
+version: '3'
+services:
+  app:
+    build: .
+    container_name: express-app
+    ports:
+      - "4000:4000"
+    environment:
+      - DB_URI=mongodb://mongo:27017/car-selling-app
+      - JWT_SECRET=your_jwt_secret_key
+      - PORT=4000
+    depends_on:
+      - mongo
+    volumes:
+      - .:/usr/src/app
+    networks:
+      - app-network
+
+  mongo:
+    image: mongo:latest
+    container_name: mongo-db
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - app-network
+
+networks:
+  app-network:
+
+volumes:
+  mongo-data:
