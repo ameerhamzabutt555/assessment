@@ -10,7 +10,11 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Middleware
-app.use(cors());
+app.use(cors({
+    origin: 'http://localhost:3000', // Replace with your frontend's URL
+    methods: ['GET', 'POST'],
+    allowedHeaders: ['Content-Type', 'Authorization'], // Add any custom headers you might be using
+}));
 app.use(express.json());
 app.use('/uploads', express.static('uploads')); // Serve uploaded images
 
