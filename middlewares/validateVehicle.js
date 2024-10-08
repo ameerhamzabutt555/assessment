@@ -1,7 +1,7 @@
 // middlewares/validateVehicle.js
 
 const validateVehicle = (req, res, next) => {
-    const { carModel, price, phone, maxPictures } = req.body;
+    const { carModel, price,userId, phone, maxPictures } = req.body;
     const pictures = req.files; // Assuming pictures are uploaded via 'req.files'
 
     // Validate car carModel
