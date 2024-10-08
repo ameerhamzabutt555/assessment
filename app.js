@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 5000;
 
 // Middleware
 app.use(cors({
-    origin: 'https://myassessmentapp.netlify.app/', // Replace with your frontend's URL
+    origin: 'https://myassessmentapp.netlify.app', // Replace with your frontend's URL
     methods: ['GET', 'POST'],
     allowedHeaders: ['Content-Type', 'Authorization'], // Add any custom headers you might be using
 }));
