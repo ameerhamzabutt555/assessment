@@ -22,10 +22,7 @@ exports.loginUser = async (email, password) => {
 exports.verifyTokenService = async (token) => {
     if (token) {
         const decodedToken = tokenUtils.verifyToken(token); // Use a different variable name
-        return { 
-            success: true, 
-            token: decodedToken // Return the verified JWT token
-        };
+        return decodedToken;
     }
 
     return { success: false, message: 'Please Provide Token.' };
