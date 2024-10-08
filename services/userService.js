@@ -16,3 +16,17 @@ exports.loginUser = async (email, password) => {
 
     return { success: false, message: 'Invalid email or password' };
 };
+
+
+// Function to log in user and generate JWT token
+exports.verifyTokenService = async (token) => {
+    if (token) {
+        const decodedToken = tokenUtils.verifyToken(token); // Use a different variable name
+        return { 
+            success: true, 
+            token: decodedToken // Return the verified JWT token
+        };
+    }
+
+    return { success: false, message: 'Please Provide Token.' };
+};
