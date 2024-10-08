@@ -11,8 +11,13 @@ const validateVehicle = (req, res, next) => {
 
     // Validate price
     if (!price || price <= 0) {
-        return res.status(400).json({ message: 'Price must be a positive number.' });
+        return res.status(400).json({ message: 'Please add the price.' });
     }
+    // Validate price
+    if (!userId || userId <= 0) {
+        return res.status(400).json({ message: 'Please add userId.' });
+    }
+
 
     // Validate phone number (exactly 11 characters)
     const phoneRegex = /^\d{11}$/;
